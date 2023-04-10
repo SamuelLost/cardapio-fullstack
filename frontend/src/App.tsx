@@ -5,9 +5,15 @@ import './App.css'
 import { Card } from './components/card/card';
 import { FoodData } from './interface/FoodData';
 import { useFoodData } from './hooks/useFoodData';
+import { CreateModel } from './components/card/create-modal/create-modal';
 
 function App() {
   const { data } = useFoodData();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(prev => !prev);
+  }
   return (
     <div className="container">
       <h1>Cardápio</h1>
@@ -19,6 +25,9 @@ function App() {
             image={foodData.image}
           />
         )}
+
+        {isModalOpen && <CreateModel closeModal={handleOpenModal}/>}
+        <button onClick={handleOpenModal} className='btn-secondary'>Novo</button>
       </div>
     </div>
   )

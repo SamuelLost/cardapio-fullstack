@@ -11,7 +11,7 @@ export function Card({price, image, title}: CardProps) {
         <div className="card">
             <img src={image}></img>
             <h2>{title}</h2>
-            <p><b>Valor:{price}</b></p>
+            <p><b>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</b></p>
         </div>
     )
 }
