@@ -21,14 +21,14 @@ public class FoodController {
     @Autowired
     private FoodRepository foodRepository;
 
-    @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDTO data) {
         Food foodData = new Food(data);
         foodRepository.save(foodData);
     }
 
-    @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll() {
         List<FoodResponseDTO> foodList = foodRepository.findAll().stream().map(FoodResponseDTO::new).toList();
