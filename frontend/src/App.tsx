@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import { Card } from './components/card/card';
-import { FoodData } from './interface/FoodData';
+import { CreateModel } from './components/create-modal/create-modal';
 import { useFoodData } from './hooks/useFoodData';
-import { CreateModel } from './components/card/create-modal/create-modal';
 
 function App() {
   const { data } = useFoodData();
@@ -26,7 +23,7 @@ function App() {
           />
         )}
 
-        {isModalOpen && <CreateModel closeModal={handleOpenModal}/>}
+        {isModalOpen && <CreateModel closeModal={handleOpenModal} />}
         <button onClick={handleOpenModal} className='btn-secondary'>Novo</button>
       </div>
     </div>
