@@ -6,12 +6,12 @@ interface CardProps {
     image: string
 }
 
-export function Card({price, image, title}: CardProps) {
+export function Card({ price, image, title }: CardProps) {
     return (
         <div className="card">
-            <img src={image}></img>
+            <div className='card-wrapper_image'><img src={image}></img></div>
             <h2>{title}</h2>
-            <p><b>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</b></p>
+            <p><b>{price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</b></p>
         </div>
     )
 }
